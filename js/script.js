@@ -10,19 +10,17 @@ function Book(title, author, pages) {
     }
 }
 
-
-
-function addBookToLibrary() {
-    const bookTitle = document.getElementById('title');
-    const bookAuthor = document.getElementById('author');
-    const bookPages = document.getElementById('pages');
-
-    const title = bookTitle.value;
-    const author = bookAuthor.value;
-    const pages = bookPages.value;
+function addBookToLibrary(e) {
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
 
     const book = new Book(title, author, pages);
-    
+
     myLibrary.push(book);
     console.log(myLibrary);
+    e.preventDefault();
 }
+
+const btnAddBook = document.getElementById('add-book');
+btnAddBook.addEventListener('click', addBookToLibrary);
