@@ -30,6 +30,8 @@ function addBookToLibrary(e) {
     // add new book to myLibrary[]
     myLibrary.push(book);
 
+    displayBook(book);
+
     // clear inputs
     bookTitle.value = '';
     bookAuthor.value = '';
@@ -53,20 +55,22 @@ for (let key in myLibrary)  {
     if (myLibrary.hasOwnProperty(key)) {
         const book = myLibrary[key];
 
-        const rowBook = document.createElement('tr');
-        // loop through book and get all values inside
-        Object.keys(book).forEach(key => {
-            // get each value inside book object
-            let value = book[key];
-
-            const td = document.createElement('td');
-            td.textContent = value;
-            rowBook.append(td);
-        });
-
-        tableBooks.append(rowBook);
+        displayBook(book);
 
     }
+}
+
+function displayBook(book) {
+    const rowBook = document.createElement('tr');
+    // loop through book and get all values inside
+    Object.keys(book).forEach(key => {
+        // get each value inside book object
+        let value = book[key];
+        const td = document.createElement('td');
+        td.textContent = value;
+        rowBook.append(td);
+    });
+    tableBooks.append(rowBook);
 }
 
 const dialog = document.querySelector('dialog');
