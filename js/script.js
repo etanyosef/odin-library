@@ -52,6 +52,8 @@ btnAddBook.addEventListener('click', addBookToLibrary);
 
 const tableBooks = document.getElementById('table-books');
 
+const booksContainer = document.getElementById('books-container');
+
 // display books inside a table
 for (let key in myLibrary)  {
     if (myLibrary.hasOwnProperty(key)) {
@@ -65,13 +67,32 @@ for (let key in myLibrary)  {
 function displayBook(book) {
     const rowBook = document.createElement('tr');
 
+    // use cards display book
+    const bookItem = document.createElement('div');
+    bookItem.setAttribute('class', 'book-item');
+
     // loop through book and get all values inside
     Object.keys(book).forEach(key => {
         // get each value inside book object
         let value = book[key];
+
         const td = document.createElement('td');
         td.textContent = value;
         rowBook.append(td);
+
+        // use cards display book
+        const bookInfoRow = document.createElement('div');
+
+        const bookField = document.createElement('div');
+        bookField.textContent = key;
+        bookInfoRow.append(bookField);
+
+        const bookData = document.createElement('div');
+        bookData.textContent = value;
+        bookInfoRow.append(bookData);
+
+        bookItem.append(bookInfoRow);
+
     });
 
     // add read button each row
@@ -90,6 +111,9 @@ function displayBook(book) {
     rowBook.append(btnDeleteBook);
 
     tableBooks.append(rowBook);
+
+    // use cards display book
+    booksContainer.append(bookItem);
 }
 
 
