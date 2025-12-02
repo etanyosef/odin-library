@@ -72,29 +72,31 @@ function displayBook(book) {
     bookItem.setAttribute('class', 'book-item');
 
     // loop through book and get all values inside
-    Object.keys(book).forEach(key => {
-        // get each value inside book object
-        let value = book[key];
+    // Object.keys(book).forEach(key => {
+    //     // get each value inside book object
+    //     let value = book[key];
 
-        const td = document.createElement('td');
-        td.textContent = value;
-        rowBook.append(td);
+    //     const td = document.createElement('td');
+    //     td.textContent = value;
+    //     rowBook.append(td);
 
-        // use cards display book
-        const bookInfoRow = document.createElement('div');
-        bookInfoRow.setAttribute('class', 'book-item-row');
+    //     // use cards display book
+    //     const bookInfoRow = document.createElement('div');
+    //     bookInfoRow.setAttribute('class', 'book-item-row');
 
-        const bookField = document.createElement('div');
-        bookField.textContent = key;
-        bookInfoRow.append(bookField);
+    //     const bookField = document.createElement('div');
+    //     bookField.textContent = key;
+    //     bookField.setAttribute('class', 'book-field');
+    //     bookInfoRow.append(bookField);
 
-        const bookData = document.createElement('div');
-        bookData.textContent = value;
-        bookInfoRow.append(bookData);
+    //     const bookData = document.createElement('div');
+    //     bookData.textContent = value;
+    //     bookData.setAttribute('class', 'book-data');
+    //     bookInfoRow.append(bookData);
 
-        bookItem.append(bookInfoRow);
+    //     bookItem.append(bookInfoRow);
 
-    });
+    // });
 
     // add read button each row
     const btnRead = document.createElement('button');
@@ -115,6 +117,62 @@ function displayBook(book) {
 
     // use cards display book
     booksContainer.append(bookItem);
+
+    // add book title to the top of card
+    const bookTitle = document.createElement('h3');
+    bookTitle.textContent = book.title;
+    bookItem.append(bookTitle);
+
+    // book id row
+    const bookIdRow = document.createElement('div');
+    const bookIdLabel = document.createElement('div');
+    const bookIdData = document.createElement('div');
+
+    bookIdLabel.textContent = 'Book Id:';
+    bookIdData.textContent = book.id;
+
+    bookIdRow.setAttribute('class', 'book-item-row');
+    bookIdLabel.setAttribute('class', 'book-field');
+    bookIdData.setAttribute('class', 'book-data');
+
+    bookIdRow.append(bookIdLabel);
+    bookIdRow.append(bookIdData);
+    bookItem.append(bookIdRow);
+
+    // book author row
+    const bookAuthorRow = document.createElement('div');
+    const bookAuthorLabel = document.createElement('div');
+    const bookAuthorData = document.createElement('div');
+
+    bookAuthorLabel.textContent = 'Author:';
+    bookAuthorData.textContent = book.author;
+
+    bookAuthorRow.setAttribute('class', 'book-item-row');
+    bookAuthorLabel.setAttribute('class', 'book-field');
+    bookAuthorData.setAttribute('class', 'book-data');
+
+    bookAuthorRow.append(bookAuthorLabel);
+    bookAuthorRow.append(bookAuthorData);
+    bookItem.append(bookAuthorRow);
+
+    // book pages row
+    const bookPagesRow = document.createElement('div');
+    const bookPagesLabel = document.createElement('div');
+    const bookPagesData = document.createElement('div');
+
+    bookPagesLabel.textContent = 'Pages:';
+    bookPagesData.textContent = book.pages;
+
+    bookPagesRow.setAttribute('class', 'book-item-row');
+    bookPagesLabel.setAttribute('class', 'book-field');
+    bookPagesData.setAttribute('class', 'book-data');
+
+    bookPagesRow.append(bookPagesLabel);
+    bookPagesRow.append(bookPagesData);
+    bookItem.append(bookPagesRow);
+
+    // book button row
+    
 }
 
 
