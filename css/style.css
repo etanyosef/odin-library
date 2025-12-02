@@ -124,6 +124,7 @@ main > h2 {
     overflow: hidden;
     background-color: rgb(246, 244, 241);
     box-shadow: 1px 1px 5px rgb(221, 221, 221);
+    font-size: 1.1rem;
 }
 
 .book-item > .book-item-row {
@@ -136,12 +137,26 @@ main > h2 {
     padding: 10px 0;
     top: 0;
     color: white;
+    margin-bottom: 20px;
 }
 
 .book-item-row > .book-field {
     width: 20%;
     text-align: right;
+    font-weight: bold;
 }
 .book-item-row > .book-data {
     width: 80%;
+}
+.book-item-row:last-child {
+    justify-content: center;
+    margin: 20px 0;
+}
+.book-item-row > .book-button {
+    border: none;
+    padding: 8px 20px;
+    background-color: red;
+    color: white;
+    border-radius: 1rem;
+    cursor: pointer;
 }

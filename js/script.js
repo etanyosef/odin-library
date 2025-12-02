@@ -98,20 +98,20 @@ function displayBook(book) {
 
     // });
 
-    // add read button each row
-    const btnRead = document.createElement('button');
-    btnRead.textContent = 'Read';
-    // add id to data-index-number to button
-    btnRead.setAttribute('data-index-number', book.id);
-    rowBook.append(btnRead);
+    // // add read button each row
+    // const btnRead = document.createElement('button');
+    // btnRead.textContent = 'Read';
+    // // add id to data-index-number to button
+    // btnRead.setAttribute('data-index-number', book.id);
+    // rowBook.append(btnRead);
 
-    // add delete button each row
-    const btnDeleteBook = document.createElement('button');
-    btnDeleteBook.textContent = 'Delete';
-    // add id to data-index-number to button
-    btnDeleteBook.setAttribute('data-index-number', book.id);
-    btnDeleteBook.addEventListener('click', () => {deleteBook(book.id)});
-    rowBook.append(btnDeleteBook);
+    // // add delete button each row
+    // const btnDeleteBook = document.createElement('button');
+    // btnDeleteBook.textContent = 'Delete';
+    // // add id to data-index-number to button
+    // btnDeleteBook.setAttribute('data-index-number', book.id);
+    // btnDeleteBook.addEventListener('click', () => {deleteBook(book.id)});
+    // rowBook.append(btnDeleteBook);
 
     tableBooks.append(rowBook);
 
@@ -172,7 +172,24 @@ function displayBook(book) {
     bookItem.append(bookPagesRow);
 
     // book button row
-    
+    const bookButtonRow = document.createElement('div');
+    const bookButtonRead = document.createElement('button');
+    const bookButtonDelete = document.createElement('button');
+
+    bookButtonRead.textContent = 'Read';
+    bookButtonDelete.textContent = 'Delete';
+
+    bookButtonRow.setAttribute('class', 'book-item-row');
+    bookButtonRead.setAttribute('class', 'book-button');
+    bookButtonDelete.setAttribute('class', 'book-button');
+
+    bookButtonDelete.setAttribute('data-index-number', book.id);
+    bookButtonDelete.addEventListener('click', () => { deleteBook(book.id) });
+
+    bookButtonRow.append(bookButtonRead);
+    bookButtonRow.append(bookButtonDelete);
+    bookItem.append(bookButtonRow);
+
 }
 
 
@@ -183,7 +200,7 @@ function deleteBook(id) {
     // remove book from ui using data-index-number from button
     const deleteBook = document.querySelector(`[data-index-number='${id}']`);
     console.log(deleteBook);
-    deleteBook.parentElement.remove();
+    deleteBook.parentElement.parentElement.remove();
 }
 
 
