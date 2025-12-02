@@ -10,33 +10,36 @@
 <body>
     <div class="container">
         <header>
-            <h1>Sagit's Library</h1>
+            <h1>My Library</h1>
+
+            <button id="show-book-form" class="btn-add-book">Add book</button>
         </header>
         <main>
             <dialog>
+                <h3>Add Book</h3>
                 <form id="add-book-form" class="add-book-form">
-                    <h3>Add Book</h3>
-                    <div>
+                    <div class="form-row">
                         <label for="title">Title</label>
                         <input type="text" id="title" name="title" minlength="2" required>
                     </div>
 
-                    <div>
+                    <div class="form-row">
                         <label for="author">Author</label>
                         <input type="text" id="author" name="author" minlength="2" required>
                     </div>
 
-                    <div>
-                        <label for="pages">No. of pages</label>
+                    <div class="form-row">
+                        <label for="pages">Pages</label>
                         <input type="number" id="pages" name="pages" required>
                     </div>
 
-                    <button id="add-book">Add book</button>
-                    <button id="close-form">Close</button>
+                    <div class="form-row">
+                        <button id="add-book">Add book</button>
+                        <button id="close-form">Close</button>
+                    </div>
+                    
                 </form>
             </dialog>
-
-            <button id="show-book-form">Add a book</button>
 
             <table border="1">
                 <thead>
