@@ -73,6 +73,7 @@ dialog > form > .form-row {
 }
 dialog > form > .form-row:last-child {
     justify-content: space-evenly;
+    margin: 20px 0;
 }
 dialog .form-row > label {
     width: 40%;
@@ -85,8 +86,20 @@ dialog .form-row > input {
     border-radius: 12px;
 }
 dialog .form-row > input:focus {
-    
     outline: 1px solid rgb(201, 201, 201);
+}
+dialog .form-row > button {
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+dialog .form-row > button:hover {
+    transition: ease-in-out .2s;
+    transform: translateY(-1px);
+    box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.472);
 }
 /* DIALOG END */
 
