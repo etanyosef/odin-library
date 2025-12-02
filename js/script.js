@@ -82,6 +82,7 @@ function displayBook(book) {
 
         // use cards display book
         const bookInfoRow = document.createElement('div');
+        bookInfoRow.setAttribute('class', 'book-item-row');
 
         const bookField = document.createElement('div');
         bookField.textContent = key;

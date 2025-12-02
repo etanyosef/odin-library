@@ -1,0 +1,30 @@
+:root {
+    font-family: Roboto, sans-serif;
+    line-height: 1.3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* BOOK CARDS START */
+.books-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.book-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 2vw;
+    padding: 20px;
+    background-color: rgb(246, 244, 241);
+    box-shadow: 1px 1px 5px rgb(221, 221, 221);
+}
+
+.book-item > .book-item-row {
+    display: flex;
+    gap: 10px;
+}
