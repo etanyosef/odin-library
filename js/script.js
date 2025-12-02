@@ -98,23 +98,6 @@ function displayBook(book) {
 
     // });
 
-    // // add read button each row
-    // const btnRead = document.createElement('button');
-    // btnRead.textContent = 'Read';
-    // // add id to data-index-number to button
-    // btnRead.setAttribute('data-index-number', book.id);
-    // rowBook.append(btnRead);
-
-    // // add delete button each row
-    // const btnDeleteBook = document.createElement('button');
-    // btnDeleteBook.textContent = 'Delete';
-    // // add id to data-index-number to button
-    // btnDeleteBook.setAttribute('data-index-number', book.id);
-    // btnDeleteBook.addEventListener('click', () => {deleteBook(book.id)});
-    // rowBook.append(btnDeleteBook);
-
-    tableBooks.append(rowBook);
-
     // use cards display book
     booksContainer.append(bookItem);
 
