@@ -83,7 +83,7 @@ dialog .form-row > input {
     padding: 8px 12px;
     border: none;
     background-color: rgb(240, 240, 240);
-    border-radius: 12px;
+    border-radius: 6px;
 }
 dialog .form-row > input:focus {
     outline: 1px solid rgb(201, 201, 201);
@@ -120,7 +120,7 @@ main > h2 {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border-radius: 1.4rem;
+    border-radius: 1rem;
     overflow: hidden;
     background-color: rgb(246, 244, 241);
     box-shadow: 1px 1px 5px rgb(221, 221, 221);

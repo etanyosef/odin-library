@@ -6,9 +6,6 @@ function Book(title, author, pages, isRead) {
     this.author = author;
     this.pages = pages;
     this.isRead = isRead;
-    // this.info = function() {
-    //     return `Id: ${this.id}, Title: ${this.title}, Title: ${this.author}, Pages: ${this.pages}`;
-    // }
 }
 
 // add default books manually
@@ -16,6 +13,12 @@ const book1 = new Book('Miming', 'Sagit', '500', false);
 myLibrary.push(book1);
 const book2 = new Book('Dogoy', 'Sevee', '400', true);
 myLibrary.push(book2);
+
+function removeAllChildNodes(parent) {
+    while(parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
 
 
 function addBookToLibrary(e) {
@@ -50,8 +53,6 @@ function addBookToLibrary(e) {
 const btnAddBook = document.getElementById('add-book');
 btnAddBook.addEventListener('click', addBookToLibrary);
 
-const tableBooks = document.getElementById('table-books');
-
 const booksContainer = document.getElementById('books-container');
 
 // display books inside a table
@@ -71,32 +72,6 @@ function displayBook(book) {
     const bookItem = document.createElement('div');
     bookItem.setAttribute('class', 'book-item');
 
-    // loop through book and get all values inside
-    // Object.keys(book).forEach(key => {
-    //     // get each value inside book object
-    //     let value = book[key];
-
-    //     const td = document.createElement('td');
-    //     td.textContent = value;
-    //     rowBook.append(td);
-
-    //     // use cards display book
-    //     const bookInfoRow = document.createElement('div');
-    //     bookInfoRow.setAttribute('class', 'book-item-row');
-
-    //     const bookField = document.createElement('div');
-    //     bookField.textContent = key;
-    //     bookField.setAttribute('class', 'book-field');
-    //     bookInfoRow.append(bookField);
-
-    //     const bookData = document.createElement('div');
-    //     bookData.textContent = value;
-    //     bookData.setAttribute('class', 'book-data');
-    //     bookInfoRow.append(bookData);
-
-    //     bookItem.append(bookInfoRow);
-
-    // });
 
     // use cards display book
     booksContainer.append(bookItem);
@@ -159,11 +134,12 @@ function displayBook(book) {
     const bookButtonRead = document.createElement('button');
     const bookButtonDelete = document.createElement('button');
 
-    bookButtonRead.textContent = 'Read';
+    bookButtonRead.textContent = `${book.isRead ? 'Read' : 'Unread'}`;
+    bookButtonRead.addEventListener('click', () => { toggleReadBook(book.id) });
     bookButtonDelete.textContent = 'Delete';
 
     bookButtonRow.setAttribute('class', 'book-item-row');
-    bookButtonRead.setAttribute('class', 'book-button');
+    bookButtonRead.setAttribute('class', 'book-button read-book');
     bookButtonDelete.setAttribute('class', 'book-button');
 
     bookButtonDelete.setAttribute('data-index-number', book.id);
@@ -172,6 +148,11 @@ function displayBook(book) {
     bookButtonRow.append(bookButtonRead);
     bookButtonRow.append(bookButtonDelete);
     bookItem.append(bookButtonRow);
+
+    // set read status
+    // const statusRead = document.createElement('div');
+    // statusRead.textContent = `${book.isRead ? 'Read' : 'Unread'}`;
+    // bookItem.append(statusRead);
 
 }
 
@@ -201,3 +182,14 @@ closeFormButton.addEventListener('click', (e) => {
 showFormButton.addEventListener('click', () => {
     dialog.showModal();
 });
+
+Book.prototype.toggleRead = function() {
+    this.isRead = !this.isRead;
+}
+
+
+function toggleReadBook(id) {
+    const index = myLibrary.findIndex(book => book.id === id);
+    myLibrary[index].toggleRead();
+    // redisplay books
+}
