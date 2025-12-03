@@ -139,6 +139,18 @@ main > h2 {
     color: white;
     margin-bottom: 20px;
 }
+.book-item > .red {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+.book-item > .green {
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
 
 .book-item-row > .book-field {
     width: 20%;
@@ -148,7 +160,7 @@ main > h2 {
 .book-item-row > .book-data {
     width: 80%;
 }
-.book-item-row:last-child {
+.book-item-row:has(.book-button) {
     justify-content: center;
     margin: 20px 0;
 }
