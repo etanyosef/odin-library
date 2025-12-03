@@ -1,5 +1,6 @@
 let myLibrary = [];
 
+// create book object
 function Book(title, author, pages, isRead) {
     this.id = crypto.randomUUID();
     this.title = title;
@@ -32,6 +33,7 @@ function addBookToLibrary(e) {
     // add new book to myLibrary[]
     myLibrary.push(book);
 
+    // clear books-container and redisplay books
     clearMyLibrary();
     displayBook();
 
@@ -125,7 +127,7 @@ function displayBook() {
             const bookButtonRead = document.createElement('button');
             const bookButtonDelete = document.createElement('button');
 
-            bookButtonRead.textContent = `${book.isRead ? 'Read' : 'Unread'}`;
+            bookButtonRead.textContent = `${book.isRead ? 'Unread' : 'Read'}`;
             bookButtonRead.addEventListener('click', () => { toggleReadBook(book.id) });
             bookButtonDelete.textContent = 'Delete';
 
@@ -139,6 +141,18 @@ function displayBook() {
             bookButtonRow.append(bookButtonRead);
             bookButtonRow.append(bookButtonDelete);
             bookItem.append(bookButtonRow);
+
+            const bookReadStatus = document.createElement('div');
+
+            if (book.isRead === true) {
+                bookReadStatus.classList.add('green');
+                bookReadStatus.textContent = 'Read';
+            } else {
+                bookReadStatus.classList.add('red');
+                bookReadStatus.textContent = 'Not Read';
+            }
+
+            bookItem.append(bookReadStatus);
 
         }
     }
