@@ -119,8 +119,8 @@ main > h2 {
 .book-item {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border-radius: 1rem;
+    gap: 20px;
+    border-radius: 0.9rem;
     overflow: hidden;
     background-color: rgb(246, 244, 241);
     box-shadow: 1px 1px 5px rgb(221, 221, 221);
@@ -130,6 +130,7 @@ main > h2 {
 .book-item > .book-item-row {
     display: flex;
     gap: 20px;
+    justify-content: center;
 }
 .book-item > h3 {
     text-align: center;
@@ -153,12 +154,12 @@ main > h2 {
 }
 
 .book-item-row > .book-field {
-    width: 20%;
+    /* width: 20%; */
     text-align: right;
     font-weight: bold;
 }
 .book-item-row > .book-data {
-    width: 80%;
+    /* width: 80%; */
 }
 .book-item-row:has(.book-button) {
     justify-content: center;
