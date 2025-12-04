@@ -175,7 +175,6 @@ function deleteBook(id) {
 
     // remove book from ui using data-index-number from button
     const deleteBook = document.querySelector(`[data-index-number='${id}']`);
-    console.log(deleteBook);
     deleteBook.parentElement.parentElement.remove();
 }
 
