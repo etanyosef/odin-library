@@ -53,7 +53,9 @@ function addBookToLibrary(e) {
 }
 
 const btnAddBook = document.getElementById('add-book');
-btnAddBook.addEventListener('click', addBookToLibrary);
+btnAddBook.addEventListener('click', () => {
+    addBookToLibrary;
+});
 
 const booksContainer = document.getElementById('books-container');
 
