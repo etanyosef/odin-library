@@ -23,6 +23,8 @@ function clearMyLibrary() {
     }
 }
 
+const formAddBook = document.getElementById('add-book-form');
+
 
 function addBookToLibrary(e) {
     const title = document.getElementById('title').value;
@@ -45,7 +47,7 @@ function addBookToLibrary(e) {
     console.table(myLibrary);
 
     // reset form and close dialog
-    const formAddBook = document.getElementById('add-book-form');
+    
     formAddBook.reset();
     dialog.close();
 
@@ -184,6 +186,7 @@ const closeFormButton = document.getElementById('close-form');
 
 // close dialog
 closeFormButton.addEventListener('click', (e) => {
+    formAddBook.reset();
     dialog.close();
     e.preventDefault();
 });
