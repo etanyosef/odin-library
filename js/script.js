@@ -28,8 +28,13 @@ function addBookToLibrary(e) {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
+    const read = document.getElementById('is-read');
 
-    const book = new Book(title, author, pages);
+    const isRead = read.checked ? true : false;
+
+    console.log(read);
+
+    const book = new Book(title, author, pages, isRead);
     // add new book to myLibrary[]
     myLibrary.push(book);
 
