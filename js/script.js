@@ -136,9 +136,9 @@ function displayBook() {
             const bookButtonRow = document.createElement('div');
             const bookButtonRead = document.createElement('button');
             const bookButtonDelete = document.createElement('button');
+            // add svg icon to delete button
             const bookButtonDeleteSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
             const bookButtonDeletePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-
             bookButtonDeleteSVG.setAttribute('viewBox', '0 0 24 24');
             bookButtonDeleteSVG.setAttribute('class', 'delete-icon');
             bookButtonDeletePath.setAttribute('d', 'M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z');

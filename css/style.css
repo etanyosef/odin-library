@@ -52,6 +52,25 @@ dialog {
     border-radius: 1.5rem;
     box-shadow: 1px 1px 5px gray;
 }
+dialog .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 40px;
+    align-items: center;
+}
+dialog .dialog-header button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+dialog .dialog-header svg {
+    fill: gray;
+    width: 30px;
+}
+dialog .dialog-header svg:hover {
+    fill: crimson;
+}
 dialog > form {
     display: flex;
     flex-direction: column;
@@ -60,12 +79,12 @@ dialog > form {
     margin: 20px 0;
 }
 dialog h3 {
-    text-align: center;
+    /* text-align: center;
     padding: 10px 0;
-    margin-top: 20px;
+    margin-top: 20px; */
     /* background-color: red; */
     color: gray;
-    width: 100%;
+    /* width: 100%; */
     font-size: 1.3rem;
 }
 dialog::backdrop {
