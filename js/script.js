@@ -26,7 +26,7 @@ function clearMyLibrary() {
 const formAddBook = document.getElementById('add-book-form');
 
 
-function addBookToLibrary(e) {
+function addBookToLibrary() {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
@@ -51,13 +51,14 @@ function addBookToLibrary(e) {
     formAddBook.reset();
     dialog.close();
 
-    e.preventDefault();
+    
 }
 
 const btnAddBook = document.getElementById('add-book');
-btnAddBook.addEventListener('click', () => {
-    addBookToLibrary;
-});
+btnAddBook.addEventListener('click', (e) => {
+    addBookToLibrary();
+    e.preventDefault();
+}); 
 
 const booksContainer = document.getElementById('books-container');
 
@@ -84,20 +85,20 @@ function displayBook() {
             bookItem.append(bookTitle);
 
             // book id row
-            const bookIdRow = document.createElement('div');
-            const bookIdLabel = document.createElement('div');
-            const bookIdData = document.createElement('div');
+            // const bookIdRow = document.createElement('div');
+            // const bookIdLabel = document.createElement('div');
+            // const bookIdData = document.createElement('div');
 
-            bookIdLabel.textContent = 'Book Id:';
-            bookIdData.textContent = book.id;
+            // bookIdLabel.textContent = 'Book Id:';
+            // bookIdData.textContent = book.id;
 
-            bookIdRow.setAttribute('class', 'book-item-row');
-            bookIdLabel.setAttribute('class', 'book-field');
-            bookIdData.setAttribute('class', 'book-data');
+            // bookIdRow.setAttribute('class', 'book-item-row');
+            // bookIdLabel.setAttribute('class', 'book-field');
+            // bookIdData.setAttribute('class', 'book-data');
 
-            bookIdRow.append(bookIdLabel);
-            bookIdRow.append(bookIdData);
-            bookItem.append(bookIdRow);
+            // bookIdRow.append(bookIdLabel);
+            // bookIdRow.append(bookIdData);
+            // bookItem.append(bookIdRow);
 
             // book author row
             const bookAuthorRow = document.createElement('div');
@@ -135,10 +136,18 @@ function displayBook() {
             const bookButtonRow = document.createElement('div');
             const bookButtonRead = document.createElement('button');
             const bookButtonDelete = document.createElement('button');
+            const bookButtonDeleteSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            const bookButtonDeletePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
-            bookButtonRead.textContent = `${book.isRead ? 'Unread' : 'Read'}`;
+            bookButtonDeleteSVG.setAttribute('viewBox', '0 0 24 24');
+            bookButtonDeleteSVG.setAttribute('class', 'delete-icon');
+            bookButtonDeletePath.setAttribute('d', 'M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z');
+            bookButtonDeleteSVG.append(bookButtonDeletePath);
+            bookButtonDelete.append(bookButtonDeleteSVG);
+
+            bookButtonRead.textContent = `Mark as ${book.isRead ? 'Unread' : 'Read'}`;
             bookButtonRead.addEventListener('click', () => { toggleReadBook(book.id) });
-            bookButtonDelete.textContent = 'Delete';
+            // bookButtonDelete.textContent = 'Delete';
 
             bookButtonRow.setAttribute('class', 'book-item-row');
             bookButtonRead.setAttribute('class', 'book-button read-book');

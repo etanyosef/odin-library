@@ -144,7 +144,7 @@ main > h2 {
 .books-container {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     margin: 10px 20px;
 }
 
@@ -209,4 +209,23 @@ main > h2 {
     transition: ease 0.4s;
     transform: translateY(-1px);
     box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.57);
+}
+.book-item-row > .book-button:has(svg) {
+    background-color: transparent;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    align-self: center;
+}
+.book-item-row > .book-button:has(svg):hover {
+    transform: none;
+    box-shadow: none;
+}
+.book-item-row > .book-button > .delete-icon {
+    fill: gray;
+}
+.book-item-row > .book-button > .delete-icon:hover {
+    fill: red;
+    transition: ease 0.4s;
+    transform: translateY(-1px);
 }
