@@ -192,18 +192,22 @@ main > h2 {
     margin-bottom: 20px;
     font-size: 1.3rem;
 }
-.book-item > .red,
-.book-item > .green {
+.book-item .red,
+.book-item .green {
     font-weight: bold;
     color: white;
     text-align: center;
-    padding: 15px 0;
+    padding: 8px 16px;
+    justify-content: center;
+    border-radius: 20px;
 }
-.book-item > .red {
-    background-color: red;
+.book-item .red {
+    background-color: rgba(255, 0, 0, 0.109);
+    color: red;
 }
-.book-item > .green {
-    background-color: green;
+.book-item .green {
+    background-color: rgba(0, 128, 0, 0.125);
+    color: green;
 }
 
 .book-item-row > .book-field {
@@ -212,9 +216,9 @@ main > h2 {
     font-weight: bold;
 }
 .book-item-row:has(.book-button) {
-    justify-content: center;
+    justify-content: space-between;
     margin: 20px 0;
-    gap: 40px;
+    padding: 0 20px;
 }
 .book-item-row > .book-button {
     border: none;

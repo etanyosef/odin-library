@@ -132,6 +132,21 @@ function displayBook() {
             bookPagesRow.append(bookPagesData);
             bookItem.append(bookPagesRow);
 
+            // read status
+            const bookStatusRow = document.createElement('div');
+            bookStatusRow.setAttribute('class', 'book-item-row');
+            const bookReadStatus = document.createElement('span');
+
+            if (book.isRead === true) {
+                bookReadStatus.classList.add('green');
+                bookReadStatus.textContent = 'Read';
+            } else {
+                bookReadStatus.classList.add('red');
+                bookReadStatus.textContent = 'Not Read';
+            }
+            bookStatusRow.append(bookReadStatus);
+            bookItem.append(bookStatusRow);
+
             // book button row
             const bookButtonRow = document.createElement('div');
             const bookButtonRead = document.createElement('button');
@@ -160,17 +175,7 @@ function displayBook() {
             bookButtonRow.append(bookButtonDelete);
             bookItem.append(bookButtonRow);
 
-            const bookReadStatus = document.createElement('div');
-
-            if (book.isRead === true) {
-                bookReadStatus.classList.add('green');
-                bookReadStatus.textContent = 'Read';
-            } else {
-                bookReadStatus.classList.add('red');
-                bookReadStatus.textContent = 'Not Read';
-            }
-
-            bookItem.append(bookReadStatus);
+            
 
         }
     }
