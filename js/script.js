@@ -9,6 +9,23 @@ let myLibrary = [];
 //     this.isRead = isRead;
 // }
 
+class MyLibrary {
+    constructor() {
+        this.library = [];
+    }
+
+    deleteBook(id) {
+        // delete book from array using id
+        this.library = this.library.filter(book => book.id != id);
+    }
+
+    addBook(book) {
+        this.library.push(book);
+    }
+
+    
+}
+
 class Book {
     constructor(title, author, pages, isRead) {
         this.id = crypto.randomUUID();
@@ -23,11 +40,13 @@ class Book {
     }
 }
 
+const library = new MyLibrary();
+
 // add default books manually
 const book1 = new Book('Miming', 'Sagit', '500', false);
-myLibrary.push(book1);
+library.library.push(book1);
 const book2 = new Book('Dogoy', 'Sevee', '400', true);
-myLibrary.push(book2);
+library.library.push(book2);
 
 
 function clearMyLibrary() {
@@ -47,9 +66,8 @@ function addBookToLibrary() {
     const isRead = read.checked ? true : false;
 
     const book = new Book(title, author, pages, isRead);
-    // add new book to myLibrary[]
-    myLibrary.push(book);
 
+    library.addBook(book);
     // clear books-container and redisplay books
     clearMyLibrary();
     displayBook();
@@ -189,8 +207,7 @@ function displayBook() {
 
 
 function deleteBook(id) {
-    // delete book from array using id
-    myLibrary = myLibrary.filter(book => book.id != id);
+    library.deleteBook(id);
 
     // remove book from ui using data-index-number from button
     const deleteBook = document.querySelector(`[data-index-number='${id}']`);
@@ -214,13 +231,9 @@ showFormButton.addEventListener('click', () => {
     dialog.showModal();
 });
 
-// Book.prototype.toggleRead = function() {
-//     this.isRead = !this.isRead;
-// }
-
 function toggleReadBook(id) {
-    const index = myLibrary.findIndex(book => book.id === id);
-    myLibrary[index].toggleRead();
+    const index = library.library.findIndex(book => book.id === id);
+    library.library[index].toggleRead();
     // clear and redisplay books
     clearMyLibrary();
     displayBook();
