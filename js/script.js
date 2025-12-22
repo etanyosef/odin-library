@@ -1,4 +1,4 @@
-let myLibrary = [];
+// let myLibrary = [];
 
 // create book object
 // function Book(title, author, pages, isRead) {
@@ -23,7 +23,6 @@ class MyLibrary {
         this.library.push(book);
     }
 
-    
 }
 
 class Book {
@@ -38,6 +37,7 @@ class Book {
     toggleRead() {
         this.isRead = !this.isRead;
     }
+
 }
 
 const library = new MyLibrary();
@@ -56,7 +56,6 @@ function clearMyLibrary() {
 
 const formAddBook = document.getElementById('add-book-form');
 
-
 function addBookToLibrary() {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
@@ -66,16 +65,12 @@ function addBookToLibrary() {
     const isRead = read.checked ? true : false;
 
     const book = new Book(title, author, pages, isRead);
-
+    
     library.addBook(book);
     // clear books-container and redisplay books
     clearMyLibrary();
     displayBook();
-
-    console.table(myLibrary);
-
-    // reset form and close dialog
-    
+    // reset form and close dialog    
     formAddBook.reset();
     dialog.close();    
 }
@@ -92,10 +87,10 @@ displayBook();
 
 function displayBook() {
 
-    for (let key in myLibrary) {
-        if (myLibrary.hasOwnProperty(key)) {
+    for (let key in library.library) {
+        if (library.library.hasOwnProperty(key)) {
 
-            const book = myLibrary[key];
+            const book = library.library[key];
 
             // use cards display book
             const bookItem = document.createElement('div');
