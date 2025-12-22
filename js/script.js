@@ -32,9 +32,7 @@ myLibrary.push(book2);
 
 function clearMyLibrary() {
     const library = document.getElementById('books-container');
-    while(library.firstChild) {
-        library.removeChild(library.firstChild);
-    }
+    library.textContent = '';
 }
 
 const formAddBook = document.getElementById('add-book-form');
