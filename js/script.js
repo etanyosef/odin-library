@@ -82,8 +82,8 @@ function addBookToLibrary() {
 
 const btnAddBook = document.getElementById('add-book');
 btnAddBook.addEventListener('click', (e) => {
-    addBookToLibrary();
     e.preventDefault();
+    addBookToLibrary();
 }); 
 
 const booksContainer = document.getElementById('books-container');
