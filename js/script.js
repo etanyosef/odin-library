@@ -1,12 +1,26 @@
 let myLibrary = [];
 
 // create book object
-function Book(title, author, pages, isRead) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
+// function Book(title, author, pages, isRead) {
+//     this.id = crypto.randomUUID();
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.isRead = isRead;
+// }
+
+class Book {
+    constructor(title, author, pages, isRead) {
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+    }
+    // from prototype to class method
+    toggleRead() {
+        this.isRead = !this.isRead;
+    }
 }
 
 // add default books manually
@@ -34,8 +48,6 @@ function addBookToLibrary() {
 
     const isRead = read.checked ? true : false;
 
-    console.log(read);
-
     const book = new Book(title, author, pages, isRead);
     // add new book to myLibrary[]
     myLibrary.push(book);
@@ -49,9 +61,7 @@ function addBookToLibrary() {
     // reset form and close dialog
     
     formAddBook.reset();
-    dialog.close();
-
-    
+    dialog.close();    
 }
 
 const btnAddBook = document.getElementById('add-book');
@@ -174,9 +184,6 @@ function displayBook() {
             bookButtonRow.append(bookButtonRead);
             bookButtonRow.append(bookButtonDelete);
             bookItem.append(bookButtonRow);
-
-            
-
         }
     }
 
@@ -209,9 +216,9 @@ showFormButton.addEventListener('click', () => {
     dialog.showModal();
 });
 
-Book.prototype.toggleRead = function() {
-    this.isRead = !this.isRead;
-}
+// Book.prototype.toggleRead = function() {
+//     this.isRead = !this.isRead;
+// }
 
 function toggleReadBook(id) {
     const index = myLibrary.findIndex(book => book.id === id);
