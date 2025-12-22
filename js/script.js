@@ -1,14 +1,3 @@
-// let myLibrary = [];
-
-// create book object
-// function Book(title, author, pages, isRead) {
-//     this.id = crypto.randomUUID();
-//     this.title = title;
-//     this.author = author;
-//     this.pages = pages;
-//     this.isRead = isRead;
-// }
-
 class MyLibrary {
     constructor() {
         this.library = [];
@@ -21,6 +10,10 @@ class MyLibrary {
 
     addBook(book) {
         this.library.push(book);
+    }
+
+    isBookExist(newBook) {
+        return this.library.some( (book) => book.title === newBook.title );
     }
 
 }
@@ -65,6 +58,11 @@ function addBookToLibrary() {
     const isRead = read.checked ? true : false;
 
     const book = new Book(title, author, pages, isRead);
+
+    if (library.isBookExist(book)) {
+        alert('already exist');
+        return;
+    }
     
     library.addBook(book);
     // clear books-container and redisplay books
