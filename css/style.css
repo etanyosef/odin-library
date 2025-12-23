@@ -35,10 +35,21 @@ header > .btn-add-book {
     background-color: red;
     color: white;
     cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 1rem;
+    padding: 10px 25px;
+    border-radius: 5px;
     font-weight: bold;
     font-size: 1.1rem;
+}
+header > .btn-add-book > .icon {
+    fill: white;
+    width: 1.3rem;
+    aspect-ratio: 1 / 1;
+    vertical-align: top;
+}
+header > .btn-add-book:hover {
+    transition: all .3s;
+    filter: grayscale(20%);
+    transform: translateY(-4px);
 }
 
 .red {
