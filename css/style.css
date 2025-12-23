@@ -152,6 +152,9 @@ dialog .form-row > button:hover {
     transform: translateY(-1px);
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.472);
 }
+dialog .form-row > button:active {
+    transform: translateY(-3px);
+}
 /* DIALOG END */
 
 main > h2 {
