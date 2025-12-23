@@ -82,6 +82,53 @@ function addBookToLibrary() {
     dialog.close();    
 }
 
+const validateBook = (title, author, pages) => {
+    const titleInput = document.getElementById('title');
+    const authorInput = document.getElementById('author');
+    const pagesInput = document.getElementById('pages');
+
+    if (title == '' || author == '' || pages == '') {
+        if ( formAddBook.contains(document.querySelector('.error-msg')) ) {
+            formAddBook.removeChild(document.querySelector('.error-msg'));    
+        }
+
+        const error = document.createElement('div');
+
+        error.textContent = 'Please fill the required fields.';
+
+        if (title == '') {
+            titleInput.style.border = '1px solid red';
+            titleInput.focus();
+        } else {
+            titleInput.style.border = '';
+        }
+
+        if (author == '') {
+            authorInput.style.border = '1px solid red';
+            authorInput.focus();
+        } else {
+            authorInput.style.border = '';
+        }
+
+        if (pages == '') {
+            pagesInput.style.border = '1px solid red';
+            pagesInput.focus();
+        } else {
+            pagesInput.style.border = '';
+        }
+
+        
+        error.setAttribute('class', 'error-msg');
+        formAddBook.prepend(error);
+        return true;
+    } else {
+        formAddBook.removeChild(document.querySelector('.error-msg')); 
+        titleInput.style.border = '';
+        authorInput.style.border = '';
+        pagesInput.style.border = '';
+    }
+}
+
 const btnAddBook = document.getElementById('add-book');
 btnAddBook.addEventListener('click', (e) => {
     e.preventDefault();
