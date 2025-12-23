@@ -60,7 +60,7 @@ function addBookToLibrary() {
     const book = new Book(title, author, pages, isRead);
     
     if (library.isBookExist(book)) {
-        if (document.getElementById('error-msg')) {
+        if ( formAddBook.contains(document.getElementById('error-msg')) ) {
             formAddBook.removeChild(document.getElementById('error-msg'));    
         }
         const error = document.createElement('div');
