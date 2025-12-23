@@ -13,7 +13,7 @@ class MyLibrary {
     }
 
     isBookExist(newBook) {
-        return this.library.some( (book) => book.title === newBook.title );
+        return this.library.some( (book) => book.title == newBook.title );
     }
 
 }
@@ -58,9 +58,18 @@ function addBookToLibrary() {
     const isRead = read.checked ? true : false;
 
     const book = new Book(title, author, pages, isRead);
-
+    
     if (library.isBookExist(book)) {
-        alert('already exist');
+        if (document.getElementById('error-msg')) {
+            formAddBook.removeChild(document.getElementById('error-msg'));    
+        }
+        const error = document.createElement('div');
+        error.setAttribute('id', 'error-msg');
+        error.textContent = '';
+        error.style.color = 'red';
+        error.style.textAlign = 'center';
+        error.textContent = `'${book.title}' already exists in the library.`;   
+        formAddBook.prepend(error);
         return;
     }
     
