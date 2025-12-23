@@ -60,11 +60,11 @@ function addBookToLibrary() {
     const book = new Book(title, author, pages, isRead);
     
     if (library.isBookExist(book)) {
-        if ( formAddBook.contains(document.getElementById('error-msg')) ) {
-            formAddBook.removeChild(document.getElementById('error-msg'));    
+        if ( formAddBook.contains(document.querySelector('.error-msg')) ) {
+            formAddBook.removeChild(document.querySelector('.error-msg'));    
         }
         const error = document.createElement('div');
-        error.setAttribute('id', 'error-msg');
+        error.setAttribute('class', 'error-msg');
         error.textContent = '';
         error.style.color = 'red';
         error.style.textAlign = 'center';
