@@ -26,7 +26,7 @@ class Book {
         this.pages = pages;
         this.isRead = isRead;
     }
-    // from prototype to class method
+    
     toggleRead() {
         this.isRead = !this.isRead;
     }
@@ -42,7 +42,7 @@ const book2 = new Book('Dogoy', 'Sevee', '400', true);
 library.library.push(book2);
 
 
-function clearMyLibrary() {
+const clearMyLibrary = () => {
     const library = document.getElementById('books-container');
     library.textContent = '';
 }
@@ -55,6 +55,10 @@ function addBookToLibrary() {
     const pages = document.getElementById('pages').value;
     const read = document.getElementById('is-read');
 
+    if(validateBook(title, author, pages)) {
+        return;
+    }
+
     const isRead = read.checked ? true : false;
 
     const book = new Book(title, author, pages, isRead);
@@ -65,9 +69,6 @@ function addBookToLibrary() {
         }
         const error = document.createElement('div');
         error.setAttribute('class', 'error-msg');
-        error.textContent = '';
-        error.style.color = 'red';
-        error.style.textAlign = 'center';
         error.textContent = `'${book.title}' already exists in the library.`;   
         formAddBook.prepend(error);
         return;
