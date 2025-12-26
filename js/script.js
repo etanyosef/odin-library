@@ -281,7 +281,12 @@ showFormButton.addEventListener('click', () => {
     dialog.showModal();
 });
 
-function toggleReadBook(id) {
+formAddBook.addEventListener('submit', (event) => {
+    event.preventDefault();
+    addBookToLibrary();
+}); 
+
+const toggleReadBook = (id) => {
     const index = library.library.findIndex(book => book.id === id);
     library.library[index].toggleRead();
     // clear and redisplay books
