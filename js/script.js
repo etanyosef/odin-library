@@ -130,7 +130,7 @@ const validateBook = (title, author, pages) => {
 }
 
 const btnAddBook = document.getElementById('add-book');
-btnAddBook.addEventListener('click', (e) => {
+btnAddBook.addEventListener('submit', (e) => {
     e.preventDefault();
     addBookToLibrary();
 }); 
