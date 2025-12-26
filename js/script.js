@@ -1,3 +1,8 @@
+const dialog = document.querySelector('dialog');
+const showFormButton = document.getElementById('show-book-form');
+const closeFormButton = document.getElementById('close-form');
+const formAddBook = document.getElementById('add-book-form');
+
 class MyLibrary {
     constructor() {
         this.library = [];
@@ -47,9 +52,7 @@ const clearMyLibrary = () => {
     library.textContent = '';
 }
 
-const formAddBook = document.getElementById('add-book-form');
-
-function addBookToLibrary() {
+const addBookToLibrary = () => {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
@@ -118,29 +121,22 @@ const validateBook = (title, author, pages) => {
             pagesInput.style.border = '';
         }
 
-        
         error.setAttribute('class', 'error-msg');
         formAddBook.prepend(error);
         return true;
     } else {
-        formAddBook.removeChild(document.querySelector('.error-msg')); 
+        if ( formAddBook.contains(document.querySelector('.error-msg')) ) {
+            formAddBook.removeChild(document.querySelector('.error-msg'));    
+        }
         titleInput.style.border = '';
         authorInput.style.border = '';
         pagesInput.style.border = '';
     }
 }
 
-const btnAddBook = document.getElementById('add-book');
-btnAddBook.addEventListener('submit', (e) => {
-    e.preventDefault();
-    addBookToLibrary();
-}); 
-
 const booksContainer = document.getElementById('books-container');
 
-displayBook();
-
-function displayBook() {
+const displayBook = () => {
 
     for (let key in library.library) {
         if (library.library.hasOwnProperty(key)) {
@@ -254,6 +250,7 @@ function displayBook() {
     }
 
 }
+displayBook();
 
 
 function deleteBook(id) {
@@ -263,11 +260,6 @@ function deleteBook(id) {
     const deleteBook = document.querySelector(`[data-index-number='${id}']`);
     deleteBook.parentElement.parentElement.remove();
 }
-
-
-const dialog = document.querySelector('dialog');
-const showFormButton = document.getElementById('show-book-form');
-const closeFormButton = document.getElementById('close-form');
 
 // close dialog
 closeFormButton.addEventListener('click', (e) => {
